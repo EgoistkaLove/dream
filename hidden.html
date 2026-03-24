@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>ACCESS</title>
 
+<style>
+body { background:black; color:red; text-align:center; font-family:monospace; }
+
+.flash { animation: flash 0.1s infinite; }
+
+@keyframes flash {
+  0%{background:black}
+  50%{background:red}
+  100%{background:black}
+}
+</style>
+</head>
+
+<body>
+
+<h1>ДОСТУП ПОЛУЧЕН</h1>
+<p>Egoistka: ты нашел меня...</p>
+<p>Darczanro: но теперь проснись</p>
+
+<input id="pass" placeholder="пароль">
+
+<script>
+// ПОДСКАЗКА В КОДЕ
+const secret = "wake";
+
+document.getElementById("pass").addEventListener("keydown", e=>{
+  if(e.key==="Enter"){
+    if(e.target.value==="wake"){
+      final();
+    } else {
+      scare();
+    }
+  }
+});
+
+function scare(){
+  document.body.classList.add("flash");
+  document.body.innerHTML=`
+  <h1>👁️ Я ТЕБЯ ВИЖУ</h1>
+  <img src="https://i.pinimg.com/originals/8a/fe/2f/8afe2f61f2879f1c7e7a56048222d5dc.gif" width="400">
+  `;
+}
+
+function final(){
+  document.body.innerHTML=`
+  <h1>Хикка проснулся...</h1>
+  <p>✨ Заклинаю Психа Хикку ложиться спать!>:з ✨</p>
+  <img src="https://i.pinimg.com/originals/c5/30/66/c53066450174f6edeb4512864a406aec.gif" width="300">
+  `;
+}
+</script>
+
+</body>
+</html>
